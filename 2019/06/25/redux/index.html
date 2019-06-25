@@ -4,8 +4,27 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="不以社会赏罚为念, Free will">
-    <meta name="description" content="当我们处在一个复杂的社会中时，有时会为了实现外在的目标而迷失自我，如果我们不想成为外在目标的傀儡。最好的方法是不以社会的认可为目标，试着以自己可以控制的奖赏（自己内心的满足感）取而代之。但这并不表示我们完全放弃对社会认可的追求。相反，我们要">
+    <meta name="keywords" content="redux, Free will">
+    <meta name="description" content="
+回顾redux
+redux解决了什么问题
+redux基本架构图
+dispatch函数
+
+
+如何编写中间件
+中间件函数基本格式
+中间件洋葱模型
+
+
+redux中间件源码解析
+applyMiddleware函数
+compose函数
+
+
+
+
+1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +32,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>不以社会赏罚为念 | Free will</title>
+    <title>redux | Free will</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +279,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        不以社会赏罚为念
+                        redux
                     </div>
                 </div>
             </div>
@@ -377,8 +396,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/善用自己的体验-心理学-社会科学/" target="_blank">
-                                <span class="chip bg-color">善用自己的体验 | 心理学 | 社会科学</span>
+                            <a href="/tags/技术-redux-react-编程/" target="_blank">
+                                <span class="chip bg-color">技术 redux react 编程</span>
                             </a>
                         
                     </div>
@@ -392,7 +411,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-23
+                    2019-06-25
                 </div>
 
                 
@@ -408,8 +427,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>当我们处在一个复杂的社会中时，有时会为了实现外在的目标而迷失自我，如果我们不想成为外在目标的傀儡。最好的方法是不以社会的认可为目标，试着以自己可以控制的奖赏（自己内心的满足感）取而代之。但这并不表示我们完全放弃对社会认可的追求。相反，我们要在社会利诱下的目标之外，建立一套属于自己的目标。</p>
-<p>从社会制约下解放自我，最重要的就是时时刻刻享受当下。如果我们学会在不断向前推进的体验中找到快乐与意义，社会制约的重担就会从肩上自动滑落。当我们不再受外在力量制约时，权力就回到了个人手中。再也不必为追赶不到的目标而孜孜以求，或是在每个无聊的一天告终时，盼望明天会更好；再也不必为遥不可及的奖励受尽折磨，而可以真正开始充实人生。但是放纵本能的欲望，并不等于摆脱社会制约，我们还得超脱肉体的欲望，学习控制心灵。痛苦与快乐都属于意识的范围，而且只在意识中存在。服从社会根据生物倾向而设计的“刺激–反应”模式，就会受外界所控制。例如迷人的广告使我们对产品垂涎不已，老板皱一下眉头就使我们整天提心吊胆，都代表我们没有决定体验内涵的自由。因为体验就是现实，所以我们可借由改变意识来改变现实，如此一来，也就摆脱了外界的威胁利诱。古希腊哲学家埃皮克提图曾说：“人害怕的其实是自己对事物的看法，而非事物本身。”罗马哲学家皇帝马可·奥勒留也曾写道：“外界事物令你痛苦并不是因为它们打扰你，而是肇因于你对它们的判断。</p>
+                <ul>
+<li><h4 id="回顾redux"><a href="#回顾redux" class="headerlink" title="回顾redux"></a>回顾redux</h4><ul>
+<li>redux解决了什么问题</li>
+<li>redux基本架构图</li>
+<li>dispatch函数</li>
+</ul>
+</li>
+<li><h4 id="如何编写中间件"><a href="#如何编写中间件" class="headerlink" title="如何编写中间件"></a>如何编写中间件</h4><ul>
+<li>中间件函数基本格式</li>
+<li>中间件洋葱模型</li>
+</ul>
+</li>
+<li><h4 id="redux中间件源码解析"><a href="#redux中间件源码解析" class="headerlink" title="redux中间件源码解析"></a>redux中间件源码解析</h4><ul>
+<li>applyMiddleware函数</li>
+<li>compose函数</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="1-回顾redux"><a href="#1-回顾redux" class="headerlink" title="1. 回顾redux"></a>1. 回顾redux</h2><ul>
+<li><h4 id="redux解决了什么问题"><a href="#redux解决了什么问题" class="headerlink" title="redux解决了什么问题"></a>redux解决了什么问题</h4><ul>
+<li>一个react应用就是一颗组件树，react是单向数据流。单向数据流的情况下，组件之间数据如何通信？组件的公共数据应该放在哪里？<br><img src="https://upload-images.jianshu.io/upload_images/14253828-cefafbe6128c0101.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux.png"></li>
+<li><h4 id="redux基本架构图"><a href="#redux基本架构图" class="headerlink" title="redux基本架构图"></a>redux基本架构图</h4><img src="https://upload-images.jianshu.io/upload_images/14253828-351d0960812b0371.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_cntBtPADjE2ykLSP.png"></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="dispatch函数"><a href="#dispatch函数" class="headerlink" title="dispatch函数"></a>dispatch函数</h4><img src="https://upload-images.jianshu.io/upload_images/1813601-f7e290c450bbe544.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux-diagram.jpg"></li>
+</ul>
+<h2 id="2-如何编写redux中间件"><a href="#2-如何编写redux中间件" class="headerlink" title="2. 如何编写redux中间件"></a>2. 如何编写redux中间件</h2><ul>
+<li>中间件函数本质就是对dispatch方法的扩展，那么如何优雅的扩展dispatch方法？</li>
+<li>mid1，mid2，mid3分别为三个中间件函数，编写中间件函数有一个固定格式，必须按照以下格式编写</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// getState获取当前state的状态</span><br><span class="line">function mid1(&#123; getState &#125;) &#123;</span><br><span class="line">// next指向下一个要执行的(action) =&gt; &#123;&#125;匿名函数</span><br><span class="line">  return (next) =&gt; &#123;</span><br><span class="line">  // action是指dispatch中的对象</span><br><span class="line">    return (action) =&gt; &#123;</span><br><span class="line">      console.log(&apos;start mid1&apos;)</span><br><span class="line">      next(action)</span><br><span class="line">      console.log(&apos;end mid1&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// getState获取当前state的状态</span><br><span class="line">function mid2(&#123; getState &#125;) &#123;</span><br><span class="line">// next指向下一个要执行的(action) =&gt; &#123;&#125;匿名函数</span><br><span class="line">  return (next) =&gt; &#123;</span><br><span class="line">  // action是指dispatch中的对象</span><br><span class="line">    return (action) =&gt; &#123;</span><br><span class="line">      console.log(&apos;start mid2&apos;)</span><br><span class="line">      next(action)</span><br><span class="line">      console.log(&apos;end mid2&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// getState获取当前state的状态</span><br><span class="line">function mid3(&#123; getState &#125;) &#123;</span><br><span class="line">// next指向下一个要执行的(action) =&gt; &#123;&#125;匿名函数</span><br><span class="line">  return (next) =&gt; &#123;</span><br><span class="line">    // action是指dispatch中的对象</span><br><span class="line">    return (action) =&gt; &#123;</span><br><span class="line">      console.log(&apos;start mid3&apos;)</span><br><span class="line">      next(action)</span><br><span class="line">      console.log(&apos;getState() :&apos;, getState());</span><br><span class="line">      console.log(&apos;end mid3&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 配置中间件</span><br><span class="line">const middleware = [mid1, mid2, mid3]</span><br><span class="line">// 创建store</span><br><span class="line">const finalCreateStore = applyMiddleware(...middleware)(createStore)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>触发一次dispatch后的执行结果<br><img src="https://upload-images.jianshu.io/upload_images/1813601-9ef18c207f8fa416.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WechatIMG95log.jpeg"></li>
+<li>####中间件洋葱模型</li>
+<li>当用户调用dispatch时，首先执行mid1中间件，在mid1中调用next执行mid2中间件，依次执行，最终调用dispatch，dispatch调用结束后，依次执行剩余中间件代码。<br><img src="https://upload-images.jianshu.io/upload_images/1813601-4f13aae4a5528d21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="zIjmUzn.png"></li>
+</ul>
+<h2 id="3-redux中间件源码解析"><a href="#3-redux中间件源码解析" class="headerlink" title="3. redux中间件源码解析"></a>3. redux中间件源码解析</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 配置中间件</span><br><span class="line">const middleware = [mid1, mid2, mid3]</span><br><span class="line">// 创建store</span><br><span class="line">const finalCreateStore = applyMiddleware(...middleware)(createStore)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="applyMiddleware函数"><a href="#applyMiddleware函数" class="headerlink" title="applyMiddleware函数"></a>applyMiddleware函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function applyMiddleware(...middlewares) &#123;</span><br><span class="line">  // createStore创建store调用的方法</span><br><span class="line">  return createStore =&gt; (...args) =&gt; &#123;</span><br><span class="line">    const store = createStore(...args)</span><br><span class="line">    const chain = middlewares.map(middleware =&gt; middleware())</span><br><span class="line">    /*</span><br><span class="line">      chain: [</span><br><span class="line">        f1: (next) =&gt; (action) =&gt; &#123; console.log(&apos;start mid1&apos;); next(action); console.log(&apos;end mid1&apos;); &#125;,</span><br><span class="line">        f2: (next) =&gt; (action) =&gt; &#123; console.log(&apos;start mid2&apos;); next(action); console.log(&apos;end mid2&apos;); &#125;,</span><br><span class="line">        f3: (next) =&gt; (action) =&gt; &#123; console.log(&apos;start mid3&apos;); next(action); console.log(&apos;end mid3&apos;); &#125;</span><br><span class="line">      ]</span><br><span class="line">    */</span><br><span class="line">    dispatch = compose(...chain)(store.dispatch)</span><br><span class="line">    /*</span><br><span class="line">      dispatch = f1(f2(f3(store.dispatch)))</span><br><span class="line">    */</span><br><span class="line">    return &#123;</span><br><span class="line">      ...store,</span><br><span class="line">      dispatch</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="compose"><a href="#compose" class="headerlink" title="compose"></a>compose</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//  (f1, f2, f3) -&gt; (...args) =&gt; f1(f2(f3(...args)))</span><br><span class="line">function compose(...funcs) &#123;</span><br><span class="line">  if (funcs.length === 0) &#123;</span><br><span class="line">    return arg =&gt; arg</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if (funcs.length === 1) &#123;</span><br><span class="line">    return funcs[0]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return funcs.reduce((a, b) =&gt; (...args) =&gt; a(b(...args)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -568,9 +634,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《不以社会赏罚为念》
+                    《redux》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/23/firstBlog/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/06/25/redux/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhineng
             </a> 采用
@@ -610,9 +676,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/06/25/redux/">
                     <div class="card-image">
@@ -649,9 +716,9 @@ compose函数
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -660,6 +727,7 @@ compose函数
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -678,24 +746,24 @@ compose函数
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/06/19/hello-world/">
+                <a href="/2019/06/23/firstBlog/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="不以社会赏罚为念">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">不以社会赏罚为念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            当我们处在一个复杂的社会中时，有时会为了实现外在的目标而迷失自我，如果我们不想成为外在目标的傀儡。最好的方法是不以社会的认可为目标，试着以自己可以控制的奖赏（自己内心的满足感）取而代之。但这并不表示我们完全放弃对社会认可的追求。相反，我们要
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-23
                             </span>
                         <span class="publish-author">
                             
@@ -704,6 +772,14 @@ compose函数
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/善用自己的体验-心理学-社会科学/" target="_blank">
+                        <span class="chip bg-color">善用自己的体验 | 心理学 | 社会科学</span>
+                    </a>
+                    
                 </div>
                 
             </div>
