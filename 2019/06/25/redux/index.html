@@ -5,26 +5,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="redux, Free will">
-    <meta name="description" content="
-回顾redux
+    <meta name="description" content="回顾redux
 redux解决了什么问题
 redux基本架构图
-dispatch函数
-
-
-如何编写中间件
+dispatch函数如何编写中间件
 中间件函数基本格式
-中间件洋葱模型
-
-
-redux中间件源码解析
+中间件洋葱模型redux中间件源码解析
 applyMiddleware函数
 compose函数
 
 
 
 
-1">
+1. 回顾red">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -427,19 +420,12 @@ compose函数
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ul>
-<li><h4 id="回顾redux"><a href="#回顾redux" class="headerlink" title="回顾redux"></a>回顾redux</h4><ul>
+                <h4 id="回顾redux"><a href="#回顾redux" class="headerlink" title="回顾redux"></a>回顾redux</h4><ul>
 <li>redux解决了什么问题</li>
 <li>redux基本架构图</li>
-<li>dispatch函数</li>
-</ul>
-</li>
-<li><h4 id="如何编写中间件"><a href="#如何编写中间件" class="headerlink" title="如何编写中间件"></a>如何编写中间件</h4><ul>
+<li>dispatch函数<h4 id="如何编写中间件"><a href="#如何编写中间件" class="headerlink" title="如何编写中间件"></a>如何编写中间件</h4></li>
 <li>中间件函数基本格式</li>
-<li>中间件洋葱模型</li>
-</ul>
-</li>
-<li><h4 id="redux中间件源码解析"><a href="#redux中间件源码解析" class="headerlink" title="redux中间件源码解析"></a>redux中间件源码解析</h4><ul>
+<li>中间件洋葱模型<h4 id="redux中间件源码解析"><a href="#redux中间件源码解析" class="headerlink" title="redux中间件源码解析"></a>redux中间件源码解析</h4><ul>
 <li>applyMiddleware函数</li>
 <li>compose函数</li>
 </ul>
@@ -448,14 +434,11 @@ compose函数
 <hr>
 <h2 id="1-回顾redux"><a href="#1-回顾redux" class="headerlink" title="1. 回顾redux"></a>1. 回顾redux</h2><ul>
 <li><h4 id="redux解决了什么问题"><a href="#redux解决了什么问题" class="headerlink" title="redux解决了什么问题"></a>redux解决了什么问题</h4><ul>
-<li>一个react应用就是一颗组件树，react是单向数据流。单向数据流的情况下，组件之间数据如何通信？组件的公共数据应该放在哪里？<br><img src="https://upload-images.jianshu.io/upload_images/14253828-cefafbe6128c0101.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux.png"></li>
-<li><h4 id="redux基本架构图"><a href="#redux基本架构图" class="headerlink" title="redux基本架构图"></a>redux基本架构图</h4><img src="https://upload-images.jianshu.io/upload_images/14253828-351d0960812b0371.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_cntBtPADjE2ykLSP.png"></li>
+<li>一个react应用就是一颗组件树，react是单向数据流。单向数据流的情况下，组件之间数据如何通信？组件的公共数据应该放在哪里？<br><img src="https://upload-images.jianshu.io/upload_images/14253828-cefafbe6128c0101.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux.png"><h4 id="redux基本架构图"><a href="#redux基本架构图" class="headerlink" title="redux基本架构图"></a>redux基本架构图</h4><img src="https://upload-images.jianshu.io/upload_images/14253828-351d0960812b0371.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_cntBtPADjE2ykLSP.png"></li>
 </ul>
 </li>
 </ul>
-<ul>
-<li><h4 id="dispatch函数"><a href="#dispatch函数" class="headerlink" title="dispatch函数"></a>dispatch函数</h4><img src="https://upload-images.jianshu.io/upload_images/1813601-f7e290c450bbe544.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux-diagram.jpg"></li>
-</ul>
+<h4 id="dispatch函数"><a href="#dispatch函数" class="headerlink" title="dispatch函数"></a>dispatch函数</h4><p><img src="https://upload-images.jianshu.io/upload_images/1813601-f7e290c450bbe544.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="redux-diagram.jpg"></p>
 <h2 id="2-如何编写redux中间件"><a href="#2-如何编写redux中间件" class="headerlink" title="2. 如何编写redux中间件"></a>2. 如何编写redux中间件</h2><ul>
 <li>中间件函数本质就是对dispatch方法的扩展，那么如何优雅的扩展dispatch方法？</li>
 <li>mid1，mid2，mid3分别为三个中间件函数，编写中间件函数有一个固定格式，必须按照以下格式编写</li>
@@ -693,26 +676,19 @@ compose函数
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-回顾redux
+                            回顾redux
 redux解决了什么问题
 redux基本架构图
-dispatch函数
-
-
-如何编写中间件
+dispatch函数如何编写中间件
 中间件函数基本格式
-中间件洋葱模型
-
-
-redux中间件源码解析
+中间件洋葱模型redux中间件源码解析
 applyMiddleware函数
 compose函数
 
 
 
 
-1
+1. 回顾red
                         
                     </div>
                     <div class="publish-info">
